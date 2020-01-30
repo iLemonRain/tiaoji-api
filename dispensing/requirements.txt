@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+pandas
+pypiwin32
+pywin32
+argparse
+apscheduler
