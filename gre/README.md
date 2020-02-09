@@ -104,7 +104,7 @@ ToDo：
 
 2. 江苏省高校：
 
-   ```
+   ```python
    from gre.src.Score import JSEEA
    from gre.src.Utils import emailNotify, randomSleep
    
@@ -119,7 +119,7 @@ ToDo：
 
 3. 沈阳师范大学：
 
-   ```
+   ```python
    ## 沈阳师范大学
    from gre.src.Score import SYNU
    from gre.src.Utils import emailNotify, randomSleep
@@ -140,7 +140,7 @@ ToDo：
 
 2. 然后依次运行以下代码即可：
 
-   ```
+   ```bash
    git clone https://github.com/1uvu/zapis.git
    cd zapis/gre/
    pip3 install -r requirements.txt
