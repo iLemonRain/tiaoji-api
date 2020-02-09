@@ -13,6 +13,7 @@
 '''
 import random
 import time
+import re
 import zmail
 
 from gre import Config

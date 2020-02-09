@@ -11,26 +11,21 @@
 ------------           -------        --------
 2020/02/09 18:21       1uvu           1.0         
 '''
+import json
 import requests
+from urllib import parse
 
 from gre import Config
 
 class SCU():
 	def __init__(self):
 		self.flag = "不在可查询时间范围内"
-		self.payload = Config.scu_payload.format(
-								Config.scu_config['id_num'],
-								Config.scu_config['name'],
-								Config.scu_config['v_code'],
-								Config.scu_config['c_num']
-								)
+		self.payload = parse.urlencode(Config.scu_payload)
 		print("你选择了四川大学查分接口，接口初始化完毕！")
 		
 	def check(self):
-		print(self.payload)
 		resp = requests.post(url=Config.scu_url, headers=Config.scu_headers, data=self.payload)
 		result = resp.text
-		# 如果接收到的电子邮件内容为：验证码错误等其他有用信息，那就是出分了，请快速前往官网查分
 		if self.flag not in result:
 			return False
 		return result
@@ -46,15 +41,22 @@ class JSEEA():
 		if self.flag in result:
 			return False
 		return result
-	
+
 class SYNU():
 	def __init__(self):
-		pass
+		self.flag = "\\u62b1\\u6b49\\uff0c\\u6ca1\\u6709\\u60a8\\u60f3\\u8981\\u7684\\u67e5\\u8be2\\u7ed3\\u679c\\uff0c\\u8bf7\\u4ed4\\u7ec6\\u6838\\u5bf9\\u60a8\\u7684\\u8f93\\u5165\\u662f\\u5426\\u6b63\\u786e\\uff01"
+		self.payload = parse.urlencode(Config.synu_payload)
+		print("你选择了沈阳师范大学查分接口，接口初始化完毕！")
 	
 	def check(self):
-		pass
+		resp = requests.post(url=Config.synu_url, headers=Config.synu_headers, data=self.payload)
+		js = json.loads(resp.text)
+		result = js[0]
+		if self.flag in result["displayContent"]:
+			return False
+		return result
 
 if __name__ == '__main__':
-	js = JSEEA()
-	result = js.check()
+	s = SYNU()
+	result = s.check()
 	print(result)

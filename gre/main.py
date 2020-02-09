@@ -11,17 +11,17 @@
 ------------           -------        --------
 2020/02/09 18:30       1uvu           1.0         
 '''
-# 四川大学
-from gre.src.Score import SCU
-from gre.src.Utils import emailNotify, randomSleep
-
-if __name__ == '__main__':
-	scu = SCU()
-	while True:
-		result = scu.check()
-		if result:
-			emailNotify(result)
-		randomSleep(time_seed=2)
+## 四川大学
+# from gre.src.Score import SCU
+# from gre.src.Utils import emailNotify, randomSleep
+#
+# if __name__ == '__main__':
+# 	scu = SCU()
+# 	while randomSleep(time_seed=2):
+# 		result = scu.check()
+# 		if result:
+# 			emailNotify(result)
+# 		randomSleep(time_seed=2)
 
 # ## 江苏省
 # from gre.src.Score import JSEEA
@@ -33,3 +33,14 @@ if __name__ == '__main__':
 # 		result = jseea.check()
 # 		if result:
 # 			emailNotify(result)
+
+## 沈阳师范大学
+from gre.src.Score import SYNU
+from gre.src.Utils import emailNotify, randomSleep
+
+if __name__ == '__main__':
+	synu = SYNU
+	while randomSleep(time_seed=2):
+		result = synu.check()
+		if result:
+			emailNotify(result)

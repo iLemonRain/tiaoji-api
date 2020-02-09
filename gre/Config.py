@@ -13,31 +13,30 @@
 '''
 ### 以下为通用的配置，需自己配置
 
-send_email_account = "" # 用于发送出分通知的邮箱账户和密码
-send_email_password = "" # 请使用 outlook 等无需进行 SMPTP 或 POP3 授权的邮箱
-receive_email_account = "" # 如果出分了则发送电子邮件给这个账户
+send_email_account = "发件邮箱账户" # 用于发送出分通知的邮箱账户和密码
+send_email_password = "发件邮箱密码" # 请使用 outlook 等无需进行 SMPTP 或 POP3 授权的邮箱
+receive_email_account = "收件邮箱账户" # 如果出分了则发送电子邮件给这个账户
 email = {
 	'subject': '出分了！', # 邮件标题
 	'content_text': '', # 邮件内容
 }
 
 ### 以下为查询分数需要的信息配置，只需配置自己需要的
-
 # 1. 四川大学配置
-scu_config = {
-	'id_num': '',  # 身份证号
-	'name': ''.encode('utf-8'),  # 名字
+scu_payload = {
+	'id_num': '123456',  # 身份证号
+	'name': '张三',  # 名字
 	'v_code': 'L626',  # 随便填一个四位的字母和数字， 建议不用改
-	'c_num': '',  # 考号 15 位
+	'c_num': '123',  # 考号 15 位
 }
 
 # 2. 江苏省考试院：无
 
 # 3. 沈阳师范大学
 
-synu_config = {
-	'cq14s130': ''.encode('utf-8'), # 姓名
-	'cq14s131': '' # 身份证号码
+synu_payload = {
+	'cq14s130': '张三', # 姓名
+	'cq14s131': '123456' # 身份证号码
 }
 
 ### 以下配置无需更改
@@ -49,7 +48,6 @@ scu_headers = {
 	'Referer': 'https://yz.scu.edu.cn/score',
 	'Content-type': 'application/x-www-form-urlencoded'
 }
-scu_payload = 'zjhm={}&xm={}&vcode={}&ksbh={}'
 
 # 2. 江苏省院校
 jseea_url = "http://stat.jseea.cn/jseea_query/select.do?cid=1"
@@ -64,4 +62,3 @@ synu_headers = {
 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
 'X-Requested-With': 'XMLHttpRequest'
 }
-synu_payload = "cq14s130={}&cq14s131={}"
