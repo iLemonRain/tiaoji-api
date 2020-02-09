@@ -13,9 +13,9 @@
 '''
 ### 以下为通用的配置，需自己配置
 
-send_email_account = "thefreer@outlook.com" # 用于发送出分通知的邮箱账户和密码
-send_email_password = "20202020zz." # 请使用 outlook 等无需进行 SMPTP 或 POP3 授权的邮箱
-receive_email_account = "thefreer@163.com" # 如果出分了则发送电子邮件给这个账户
+send_email_account = "" # 用于发送出分通知的邮箱账户和密码
+send_email_password = "" # 请使用 outlook 等无需进行 SMPTP 或 POP3 授权的邮箱
+receive_email_account = "" # 如果出分了则发送电子邮件给这个账户
 email = {
 	'subject': '出分了！', # 邮件标题
 	'content_text': '', # 邮件内容
@@ -31,10 +31,18 @@ scu_config = {
 	'c_num': '',  # 考号 15 位
 }
 
+# 2. 江苏省考试院：无
+
+# 3. 沈阳师范大学
+
+synu_config = {
+	'cq14s130': ''.encode('utf-8'), # 姓名
+	'cq14s131': '' # 身份证号码
+}
 
 ### 以下配置无需更改
 
-# 四川大学
+# 1. 四川大学
 scu_url = "https://yz.scu.edu.cn/score/Query/--"
 scu_headers = {
 	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
@@ -43,9 +51,17 @@ scu_headers = {
 }
 scu_payload = 'zjhm={}&xm={}&vcode={}&ksbh={}'
 
-# 江苏省院校
+# 2. 江苏省院校
 jseea_url = "http://stat.jseea.cn/jseea_query/select.do?cid=1"
 jseea_headers = {
 	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
 }
 
+# 3. 沈阳师范大学
+synu_url = "http://yjs.synu.edu.cn/_web/commonquery/multipleQueryResult.do?_p=YXM9ODQmdD0yNTgmcD0xJm09TiY_&id=14&mobileTemplate=false"
+synu_headers = {
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
+'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+'X-Requested-With': 'XMLHttpRequest'
+}
+synu_payload = "cq14s130={}&cq14s131={}"

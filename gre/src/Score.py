@@ -27,6 +27,7 @@ class SCU():
 		print("你选择了四川大学查分接口，接口初始化完毕！")
 		
 	def check(self):
+		print(self.payload)
 		resp = requests.post(url=Config.scu_url, headers=Config.scu_headers, data=self.payload)
 		result = resp.text
 		# 如果接收到的电子邮件内容为：验证码错误等其他有用信息，那就是出分了，请快速前往官网查分
@@ -46,6 +47,12 @@ class JSEEA():
 			return False
 		return result
 	
+class SYNU():
+	def __init__(self):
+		pass
+	
+	def check(self):
+		pass
 
 if __name__ == '__main__':
 	js = JSEEA()
