@@ -39,7 +39,7 @@ from gre.src.Score import SYNU
 from gre.src.Utils import emailNotify, randomSleep
 
 if __name__ == '__main__':
-	synu = SYNU
+	synu = SYNU()
 	while randomSleep(time_seed=2):
 		result = synu.check()
 		if result:
