@@ -24,19 +24,23 @@ email = {
 ### 以下为查询分数需要的信息配置，只需配置自己需要的
 # 1. 四川大学配置
 scu_payload = {
-	'id_num': '123456',  # 身份证号
-	'name': '张三',  # 名字
-	'v_code': 'L626',  # 随便填一个四位的字母和数字， 建议不用改
-	'c_num': '123',  # 考号 15 位
+	'zjhm': '123456197710016874',  # 身份证号
+	'xm': '张三',  # 名字
+	'vcode': 'L626',  # 随便填一个四位的字母和数字， 建议不用改
+	'ksbn': '123456789012345',  # 考号 15 位
 }
 
 # 2. 江苏省考试院：无
 
 # 3. 沈阳师范大学
-
 synu_payload = {
 	'cq14s130': '张三', # 姓名
-	'cq14s131': '123456' # 身份证号码
+	'cq14s131': '123456789012345' # 身份证号码
+}
+
+# 4. 研招网
+chsi_payload = {
+
 }
 
 ### 以下配置无需更改
@@ -62,3 +66,10 @@ synu_headers = {
 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
 'X-Requested-With': 'XMLHttpRequest'
 }
+
+# 4. 研招网
+chsi_url = ""
+chsi_headers = {
+
+}
+
