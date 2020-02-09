@@ -67,6 +67,8 @@
 
 #### 修改及运行 main
 
+**修改**
+
 1. 四川大学：
 
    ```python
@@ -95,6 +97,19 @@
          if result:
             emailNotify(result)
          randomSleep(time_seed=2)
+   ```
+
+**运行**: 想要 24 小时不间断监测需要一台云服务器
+
+1. 安装 python3 和 git
+
+2. 然后依次运行以下代码即可：
+
+   ```
+   git clone https://github.com/1uvu/zapis.git
+   cd zapis/gre/
+   pip3 install -r requirements.txt
+   python3 main.py
    ```
 
 下面单独介绍每个接口的简单原理及使用
