@@ -73,5 +73,5 @@ class MC(object):
 if __name__ == '__main__':
 	mc = MC(config.index_payload)
 	info_list =  mc.mc_interface(2)
-	print(info_list[0])
+	print(info_list)
 	

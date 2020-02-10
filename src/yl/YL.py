@@ -14,7 +14,7 @@
 import json
 
 import requests
-from dispensing.src.yl import config
+from src.yl import config
 
 
 class YL(object):
