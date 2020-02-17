@@ -2,7 +2,7 @@
 
 **1. [木虫论坛](#木虫论坛)**
 
-**2. [研鹿网](#研鹿网)**
+**2. [研鹿网（考研村）](#研鹿网)**
 
 **3. [Demo](#Demo)**
 
@@ -22,7 +22,7 @@ import pandas as pd
 import src.mc.config as mc_config
 
 mc = MC(mc_config.index_payload)
-info =  mc.mc_interface(1) # 
+info =  mc.mc_interface(1) # 参数为页码
 df = pd.DataFrame(info)
 
 '''
@@ -60,24 +60,7 @@ df.to_excel("mc.xlsx")
 
 ### Demo
 
-我实现了一个**自动下载 + WinToast + 存储数据**的 demo
-
-**关于自动下载的触发器配置如下**：
-
-```
-trigger_config = {
-		"year": "*",
-		"month": "*",
-		"day": "*",
-		"hour": "*",
-		"minute": "*",
-		"second": "0,10,20,30,40,50",
-		"week": "*",
-		"day_of_week": "*"
-	}
-```
-
-使用方法请移步 **[APScheduler 文档—触发器配置](https://book-and-note.readthedocs.io/zh/latest/note/python/APScheduler.html#trigger)**
+我实现了一个小 [demo](./src/demo/)
 
 **使用：**
 
@@ -92,10 +75,10 @@ python demo.py
 ![image-20200115002632538](README.assets/image-20200115002632538.png)
 
 <hr>
-**木虫：**
+**木虫**：
 
 ![image-20200115002544750](README.assets/image-20200115002544750.png)
 
-**研鹿：**
+**研鹿**：
 
 ![image-20200115002459153](README.assets/image-20200115002459153.png)
