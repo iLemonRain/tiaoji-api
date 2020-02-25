@@ -37,7 +37,7 @@ class YL(object):
 		return data
 	
 	
-	def yl_interface(self, page):
+	def interface(self, page):
 		'''
 		根据 payload，返回查到的调剂信息
 		:param page: 页码
@@ -77,6 +77,6 @@ if __name__ == '__main__':
 	yl = YL(config.dispensing_payload)
 	p = "安徽"
 	# print(yl.college_list(p))
-	print(yl.yl_interface(1))
+	print(yl.interface(1))
 	
 

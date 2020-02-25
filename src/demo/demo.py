@@ -20,13 +20,19 @@ from src.yl.YL import YL
 import src.yl.config as yl_config
 
 
-def func(yl, root='./'):
+def func(obj, root='./', ran=(1,10)):
 	if list(root)[-1] != '/':
 		root += '/'
 	date = datetime.now()
 	now = date.strftime("%Y-%m-%d %H-%M-%S").strip()
-	info = yl.yl_interface(1)  # 获取第一页的数据
-	df = pd.DataFrame(info)
+	
+	df = pd.DataFrame()
+	for i in range(ran[0], ran[1]):
+		info = obj.interface(i)
+		print(info)
+		df_t = pd.DataFrame(info)
+		df = pd.concat([df, df_t], ignore_index=True)
+		
 	df.to_excel("./%s%s" % (root, now) + ".xlsx")
 	msg = '''时间：%s  结果：下载完成''' % now
 	print(msg)
@@ -35,6 +41,7 @@ if __name__ == '__main__':
 	mc = MC(mc_config.index_payload)
 	yl = YL(yl_config.dispensing_payload)
 	root = './output'
+	ran = (1, 5)
 	# 回调函数参数
-	func(yl, root)
+	func(mc, root, ran)
 

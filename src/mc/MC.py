@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 '''
 @File    :   MC.py
-@Desc    :   
+@Desc    :
 @Project :   swap
 @Contact :   zjh98@vip.qq.com
 @License :   (C)Copyright 2018-2020, ZJH
@@ -12,6 +12,7 @@
 2020/01/12 23:55       ZJH            1.0
 '''
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 
 from src.mc import config
@@ -21,8 +22,8 @@ class MC(object):
 		# payload 格式参见 config 的 index_payload
 		self.url = config.url
 		self.payload = payload
-	
-	def mc_interface(self, page):
+
+	def interface(self, page):
 		'''
 		返回每页的信息列表
 		:param page: 页码
@@ -58,7 +59,7 @@ class MC(object):
 				info['date'].append(tds[4].text)
 				info['description'].append(self.info_desc(tds[0].a["href"]))
 		return info
-	
+
 	def info_desc(self, durl):
 		'''
 		得到详情页信息
@@ -66,12 +67,13 @@ class MC(object):
 		:return: 补充信息
 		'''
 		html = requests.get(durl, headers=config.headers).text
-		soup = BeautifulSoup(html, "lxml").select("div.t_fsz")[0]
-		return str(soup.text.strip())
+		try:
+			soup = BeautifulSoup(html, "lxml").select_one("div.t_fsz")
+			return str(soup.text.strip())
+		except:
+			return ""
 
 ## 直接运行即可
 if __name__ == '__main__':
 	mc = MC(config.index_payload)
-	info_list =  mc.mc_interface(2)
-	print(info_list)
-	
+	info_list =  mc.interface(1)
